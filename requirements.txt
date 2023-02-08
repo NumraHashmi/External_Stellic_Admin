@@ -1,0 +1,7 @@
+HTMLTestRunner-rv==1.0.18
+webdriver-manager==3.8.5
+pylint-quotes==0.2.3
+selenium==4.8.0
+pylint==2.16.1
+black==23.1.0
+isort==5.12.0

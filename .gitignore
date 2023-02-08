@@ -1,0 +1,140 @@
+# Specifies intentionally untracked files to ignore.
+#
+# A gitignore file specifies intentionally untracked files that Git should
+# ignore. Files already tracked by Git are not affected.
+#
+# Usages:
+#   This file specifies intentionally untracked files that Git should ignore.
+#
+# Notes:
+#   Use following links for more information:
+#   - <https://git-scm.com/docs/gitignore>
+#   - <https://github.com/github/gitignore>
+#
+# Authors:
+#
+#   - Numra Hashmi <numra.hashmi@techwards.co>
+#
+# Maintainers:
+#   - Faizan Siddiqui <faizan.siddiqui@purevpn.com>
+
+# Applications
+*.app
+*.exe
+*.war
+
+# C
+*.so
+
+# Celery
+celerybeat-schedule
+
+# Django
+local_settings.py
+
+# ENV variables files
+.env
+.env-stage
+.env.sh
+
+
+# Flask
+.webassets-cache
+instance/
+
+# IPython
+.ipynb_checkpoints
+
+# Large media files
+*.avi
+*.flv
+*.mov
+*.mp4
+*.tiff
+*.wmv
+
+# Log files
+*.log
+
+# MacOS
+.DS_Store
+
+# NewRelic
+newrelic.ini
+
+# Node
+node_modules/
+
+# Pip
+pip-delete-this-directory.txt
+pip-log.txt
+
+# PyBuilder
+target/
+
+# Python
+__pycache__/
+.eggs/
+.installed.cfg
+.Python
+.python-version
+.venv/*
+*.egg
+*.egg-info/
+*.pyc
+*.pyd
+*.pyo
+*$py.class
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+env/
+lib/
+lib64/
+parts/
+sdist/
+var/
+venv/*
+
+# Scrapy
+.scrapy
+
+# Sphinx
+docs/_build/
+
+# Spyder
+.spyderproject
+
+# Rope
+.ropeproject
+
+# Temporary files
+.tmp
+tmp/*
+
+# Translations
+*.mo
+*.pot
+
+# Unit test and coverage reports
+.cache
+.coverage
+.coverage.*
+.hypothesis/
+.tox/
+*,cover
+coverage.xml
+htmlcov/
+nosetests.xml
+
+# VSCode
+.vscode/
+
+# Windows
+Thumbs.db
+
+.idea/
+outfile.html/
+
