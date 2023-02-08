@@ -21,9 +21,9 @@ from utilities.constants import LoginCreds
 
 
 class TestStaff(unittest.TestCase):
-    email = LoginCreds.USERNAME
-    password = LoginCreds.PASSWORD
-    url = LoginCreds.LOGIN_URL
+    email = LoginCreds.USERNAME.value
+    password = LoginCreds.PASSWORD.value
+    url = LoginCreds.LOGIN_URL.value
 
     # advanced_button="//*[contains(text(), 'Continue')]"
 

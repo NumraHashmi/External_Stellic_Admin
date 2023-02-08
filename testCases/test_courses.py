@@ -21,9 +21,9 @@ from utilities.constants import LoginCreds
 
 
 class TestCourses(unittest.TestCase):
-    email = LoginCreds.USERNAME
-    password = LoginCreds.PASSWORD
-    url = LoginCreds.LOGIN_URL
+    email = LoginCreds.USERNAME.value
+    password = LoginCreds.PASSWORD.value
+    url = LoginCreds.LOGIN_URL.value
     prog_name = "New_program_2023"
 
     @classmethod

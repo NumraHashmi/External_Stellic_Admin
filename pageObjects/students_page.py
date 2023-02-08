@@ -40,11 +40,11 @@ class Students:
     def select_random_student(self):
         WebDriverWait(self.driver, 20).until(
             expected_conditions.presence_of_all_elements_located(
-                (By.XPATH, "//div[@class='search-result-item']")
+                (By.XPATH, "//div[contains(@class,'search-result-item')]")
             )
         )
         students = self.driver.find_elements(
-            By.XPATH, "//div[@class='search-result-item']"
+            By.XPATH, "//div[contains(@class,'search-result-item')]"
         ).click()
         for members in students:
             a_student = random.choice(members)
