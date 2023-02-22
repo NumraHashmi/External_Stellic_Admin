@@ -20,6 +20,7 @@ class Staff:
     ok_button_xpath = "//button[contains(text(), 'OK')]"
     create_group_button = "//button[contains(text(),'Create new group')]"
     group_name_placeholder = "//select[@aria-label='new group name']"
+    create_new_group_button = "//button[contains(text(), 'Create New Group')]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -88,9 +89,16 @@ class Staff:
             )
         ).click()
 
-    def click_group_name(self):
+    def click_group_name(self, name):
         WebDriverWait(self.driver, 20).until(
             expected_conditions.element_to_be_clickable(
-                (By.XPATH, self.group_name_placeholder)
+                (By.XPATH, "//input[@aria-label='new group name']")
             )
-        ).sendkeys()
+        ).send_keys(name)
+
+    def click_create_new_group(self):
+        WebDriverWait(self.driver, 20).until(
+            expected_conditions.element_to_be_clickable(
+                (By.XPATH, self.create_new_group_button)
+            )
+        ).click()
