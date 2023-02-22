@@ -24,7 +24,7 @@ class TestProgram(unittest.TestCase):
     password = LoginCreds.PASSWORD.value
     url = LoginCreds.LOGIN_URL.value
 
-    prog_name = "My_New_program_2023"
+    prog_name = "Test_Program_002"
 
     # advanced_button="//*[contains(text(), 'Continue')]"
 
@@ -38,8 +38,11 @@ class TestProgram(unittest.TestCase):
         cls.driver = webdriver.Chrome(
             ChromeDriverManager().install(), chrome_options=chrome_options
         )
+        cls.driver.maximize_window()
 
-    def test_create_program(self):
+
+
+    def test_a_create_program(self):
         driver = self.driver
         driver.get(self.url)
         login_page = Login(self.driver)

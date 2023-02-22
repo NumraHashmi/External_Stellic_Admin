@@ -32,7 +32,7 @@ class TestStudents(unittest.TestCase):
     email = "admin"
     password = "ballroom9"
     url = "https://duke.staging.stellic.com/app/"
-    path_name = "Test_pathway_2023"
+    path_name = "pathway_2023"
 
     @classmethod
     def setUpClass(cls):
@@ -46,7 +46,7 @@ class TestStudents(unittest.TestCase):
         )
         cls.driver.maximize_window()
 
-    def test_students(self):
+    def test_1_students(self):
         driver = self.driver
         driver.get(self.url)
         login_page = Login(self.driver)
@@ -55,3 +55,10 @@ class TestStudents(unittest.TestCase):
         login_page.clickContinue()
         stud = Students(self.driver)
         stud.select_random_student()
+        time.sleep(10)
+        stud.click_audit_report()
+
+    @classmethod
+    def tearDownClass(self):
+        sleep(5)
+        self.driver.close()

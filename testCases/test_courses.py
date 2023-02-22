@@ -24,7 +24,7 @@ class TestCourses(unittest.TestCase):
     email = LoginCreds.USERNAME.value
     password = LoginCreds.PASSWORD.value
     url = LoginCreds.LOGIN_URL.value
-    prog_name = "New_program_2023"
+    prog_name = "Testing New_program_2023"
 
     @classmethod
     def setUpClass(cls):
@@ -37,13 +37,23 @@ class TestCourses(unittest.TestCase):
             ChromeDriverManager().install(), chrome_options=chrome_options
         )
         cls.driver.get(cls.url)
+        cls.driver.maximize_window()
 
-        login_page = Login(cls.driver)
-        login_page.setEmail(cls.email)
-        login_page.setPassword(cls.password)
+    def test_a_check_page_title(self):
+        login_page = Login(self.driver)
+        login_page.setEmail(self.email)
+        login_page.setPassword(self.password)
         login_page.clickContinue()
+        course = Courses(self.driver)
+        course.click_courses_tab()
+        time.sleep(5)
+        act_title = self.driver.title
+        if act_title == "Course Catalog":
+            assert True
+        else:
+            assert False
 
-    def test_01(self):
+    def test_b_download_past_files(self):
         course = Courses(self.driver)
         course.delete_exsisting_past_files()
         course.click_courses_tab()
@@ -57,7 +67,7 @@ class TestCourses(unittest.TestCase):
 
         time.sleep(10)
 
-    def test_02(self):
+    def test_c_download_current_files(self):
         course = Courses(self.driver)
         course.delete_exsisting_current_files()
         course.click_courses_tab()
@@ -72,9 +82,7 @@ class TestCourses(unittest.TestCase):
             assert False
         time.sleep(10)
 
-    def test_03(self):
-        driver = self.driver
-        driver.get(self.url)
+    def test_d_download_future_files(self):
         course = Courses(self.driver)
         course.delete_exsisting_future_files()
         course.click_course_demand_report()
