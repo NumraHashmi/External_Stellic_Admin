@@ -15,6 +15,7 @@ from testCases.test_login import TestLogin
 from testCases.test_program import TestProgram
 from testCases.test_staff import TestStaff
 from testCases.test_student import TestStudents
+from testCases.test_pathways import TestPathways
 
 
 def test_suite():
@@ -23,11 +24,12 @@ def test_suite():
     :return:
     """
     test1 = unittest.TestLoader().loadTestsFromTestCase(TestLogin)
-    test2 = unittest.TestLoader().loadTestsFromTestCase(TestProgram)
-    test3 = unittest.TestLoader().loadTestsFromTestCase(TestCourses)
-    test4 = unittest.TestLoader().loadTestsFromTestCase(TestStaff)
-    test5 = unittest.TestLoader().loadTestsFromTestCase(TestStudents)
-    suite = unittest.TestSuite([test1, test2, test3, test4, test5])
+    test2 = unittest.TestLoader().loadTestsFromTestCase(TestStudents)
+    test3 = unittest.TestLoader().loadTestsFromTestCase(TestProgram)
+    test4 = unittest.TestLoader().loadTestsFromTestCase(TestCourses)
+    test5 = unittest.TestLoader().loadTestsFromTestCase(TestPathways)
+    test6 = unittest.TestLoader().loadTestsFromTestCase(TestStaff)
+    suite = unittest.TestSuite([test1, test2, test3, test4, test5, test6])
     runner = HTMLTestRunner.HTMLTestRunner(
         log=True,
         verbosity=2,

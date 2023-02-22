@@ -43,7 +43,7 @@ class Courses:
 
     def click_course_demand_report(self):
         course_demand_report = (
-            WebDriverWait(self.driver, 30)
+            WebDriverWait(self.driver, 10)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.course_demand_report_button)
@@ -55,7 +55,7 @@ class Courses:
 
     def select_past_course_demand_report(self):
         course_demand_report = (
-            WebDriverWait(self.driver, 20)
+            WebDriverWait(self.driver, 10)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.past_course_report_option)
@@ -67,7 +67,7 @@ class Courses:
 
     def select_future_course_demand_report(self):
         course_demand_report = (
-            WebDriverWait(self.driver, 20)
+            WebDriverWait(self.driver, 10)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.future_course_report_option)
@@ -79,7 +79,7 @@ class Courses:
 
     def select_current_course_demand_report(self):
         course_demand_report = (
-            WebDriverWait(self.driver, 20)
+            WebDriverWait(self.driver, 10)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.current_course_report_option)

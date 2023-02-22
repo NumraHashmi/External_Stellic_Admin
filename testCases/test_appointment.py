@@ -1,9 +1,4 @@
-#!./venv/bin/python
-# -*- coding: utf-8 -*-
 
-"""Defines tests related to Program Feature"""
-
-# Standard library
 import time
 import unittest
 from time import sleep
@@ -14,19 +9,16 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 # First-party
+from pageObjects.appointments_page import Appointments
 from pageObjects.login_page import Login
-from pageObjects.program_page import Program
 from utilities.constants import LoginCreds
 
 
-class TestProgram(unittest.TestCase):
+class TestAppointment(unittest.TestCase):
     email = LoginCreds.USERNAME.value
     password = LoginCreds.PASSWORD.value
     url = LoginCreds.LOGIN_URL.value
-
-    prog_name = "Test_Program_002"
-
-    # advanced_button="//*[contains(text(), 'Continue')]"
+    prog_name = "Testing New_program_2023"
 
     @classmethod
     def setUpClass(cls):
@@ -38,33 +30,17 @@ class TestProgram(unittest.TestCase):
         cls.driver = webdriver.Chrome(
             ChromeDriverManager().install(), chrome_options=chrome_options
         )
+        cls.driver.get(cls.url)
         cls.driver.maximize_window()
 
-
-
-    def test_a_create_program(self):
-        driver = self.driver
-        driver.get(self.url)
+    def test_a_check_page_title(self):
         login_page = Login(self.driver)
         login_page.setEmail(self.email)
         login_page.setPassword(self.password)
         login_page.clickContinue()
-        program = Program(self.driver)
-        program.click_programs()
-        program.click_create_new()
-        program.select_requirement()
-        program.write_name_of_prog(self.prog_name)
-        program.select_scope()
-        program.scope_type()
-        program.primary_depart()
-        program.department_option()
-        program.click_create()
+        appointment = Appointments(self.driver)
+        appointment.click_appointment_tab()
+        appointment.click_create_time_block()
+        appointment.custom_block()
+        appointment.appointment_slot()
         time.sleep(10)
-        act_title = self.driver.title
-        if act_title == self.prog_name:
-            assert True
-
-    @classmethod
-    def tearDownClass(cls):
-        sleep(5)
-        cls.driver.close()

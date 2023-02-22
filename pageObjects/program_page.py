@@ -30,7 +30,7 @@ class Program:
 
     def click_programs(self):
         programs_button = (
-            WebDriverWait(self.driver, 20)
+            WebDriverWait(self.driver, 25)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.programs_tab)
@@ -42,7 +42,7 @@ class Program:
 
     def click_create_new(self):
         create_new = (
-            WebDriverWait(self.driver, 10)
+            WebDriverWait(self.driver, 15)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.create_new_button)
@@ -54,7 +54,7 @@ class Program:
 
     def select_requirement(self):
         requirement = (
-            WebDriverWait(self.driver, 10)
+            WebDriverWait(self.driver, 15)
             .until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.drp_requirement)

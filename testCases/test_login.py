@@ -34,9 +34,10 @@ class TestLogin(unittest.TestCase):
         cls.driver = webdriver.Chrome(
             ChromeDriverManager().install(), chrome_options=chrome_options
         )
+        cls.driver.maximize_window()
 
     # test_home_page
-    def test_01(self):
+    def test_a_web_title(self):
         driver = self.driver
         driver.get(self.url)
         act_title = self.driver.title
@@ -46,7 +47,7 @@ class TestLogin(unittest.TestCase):
             assert False
 
     # test_login
-    def test_02(self):
+    def test_b_check_login(self):
         driver = self.driver
         driver.get(self.url)
 
