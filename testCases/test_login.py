@@ -22,7 +22,7 @@ class TestLogin(unittest.TestCase):
     password = LoginCreds.PASSWORD.value
     url = LoginCreds.LOGIN_URL.value
 
-    # advanced_button="//*[contains(text(), 'Continue')]"
+
 
     @classmethod
     def setUpClass(cls):

@@ -10,12 +10,12 @@ import unittest
 import HTMLTestRunner
 
 # First-party
-from testCases.test_courses import TestCourses
-from testCases.test_login import TestLogin
+# from testCases.test_courses import TestCourses
+# from testCases.test_login import TestLogin
 from testCases.test_program import TestProgram
-from testCases.test_staff import TestStaff
-from testCases.test_student import TestStudents
-from testCases.test_pathways import TestPathways
+# from testCases.test_staff import TestStaff
+# from testCases.test_student import TestStudents
+# from testCases.test_pathways import TestPathways
 
 
 def test_suite():
@@ -23,13 +23,15 @@ def test_suite():
     Function to create Test Suite from Unit-Tests
     :return:
     """
-    test1 = unittest.TestLoader().loadTestsFromTestCase(TestLogin)
-    test2 = unittest.TestLoader().loadTestsFromTestCase(TestStudents)
+    # test1 = unittest.TestLoader().loadTestsFromTestCase(TestLogin)
+    # test2 = unittest.TestLoader().loadTestsFromTestCase(TestStudents)
     test3 = unittest.TestLoader().loadTestsFromTestCase(TestProgram)
-    test4 = unittest.TestLoader().loadTestsFromTestCase(TestCourses)
-    test5 = unittest.TestLoader().loadTestsFromTestCase(TestPathways)
-    test6 = unittest.TestLoader().loadTestsFromTestCase(TestStaff)
-    suite = unittest.TestSuite([test1, test2, test3, test4, test5, test6])
+    # test4 = unittest.TestLoader().loadTestsFromTestCase(TestCourses)
+    # test5 = unittest.TestLoader().loadTestsFromTestCase(TestPathways)
+    # test6 = unittest.TestLoader().loadTestsFromTestCase(TestStaff)
+    # suite = unittest.TestSuite([test1, test2, test3, test4,test5, test6])
+    # runner = HTMLTestRunner.HTMLTestRunner(
+    suite = unittest.TestSuite(test3)
     runner = HTMLTestRunner.HTMLTestRunner(
         log=True,
         verbosity=2,

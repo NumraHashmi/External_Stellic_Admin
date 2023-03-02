@@ -7,14 +7,16 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.ui import Select
 
 
+
+
 class Pathways:
     pathway_tab = "//a[@href='/app/pathways']"
     create_new_button = "//button[text()='Create New']"
     name_textbox = "//input[@placeholder='New Pathway Name']"
     programs_addressed = "//input[@placeholder='Search Program Name']"
-    programs_list = "//li[contains(@id, 'option-0')]"
+    programs_list = "//li[contains(@id, 'option-')]"
     audit_dropdown = "//select[@aria-label='select audit for Forest Resource Management [N-FRM-MF]']"
-    any_option = "//option"
+    any_option = (By.TAG_NAME,'option')
     create_button = "//button[contains(text(),'Create')]"
 
     def __init__(self, driver):
@@ -71,18 +73,18 @@ class Pathways:
 
     def select_audit(self):
         try:
-            WebDriverWait(self.driver, 10).until(
+            select_dropdown=WebDriverWait(self.driver, 10).until(
                 expected_conditions.presence_of_element_located(
                     (By.XPATH, self.audit_dropdown)
                 )
             ).click()
         except TimeoutError:
             print("Element not found")
-        all_options = WebDriverWait(self.driver, 10).until(
-                expected_conditions.presence_of_all_elements_located()
-                (By.TAG_NAme,self.any_option))
-
-        random_audit = random.choice(all_options).click()
+        # select_dropdown.select_by_visible_text('EY2019').click()
+        options = WebDriverWait(self.driver,10).until
+        (expected_conditions.presence_of_all_elements_located(self.any_option))
+        random_audit = random.choice(options).click()
+        time.sleep(10)
 
 
 
